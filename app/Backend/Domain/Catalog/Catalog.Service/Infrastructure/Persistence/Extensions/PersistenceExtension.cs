@@ -1,4 +1,7 @@
-﻿using Catalog.Service.Infrastructure.Persistence.Contexts;
+﻿using Catalog.Service.Domain.Interfaces;
+using Catalog.Service.Infrastructure.Persistence.Contexts;
+using Catalog.Service.Infrastructure.Persistence.Repositories;
+using Catalog.Service.Infrastructure.Persistence.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Service.Infrastructure.Persistence.Extensions
@@ -25,6 +28,8 @@ namespace Catalog.Service.Infrastructure.Persistence.Extensions
             configure(options);
 
             services.AddDbContext<CatalogContext>(o => o.UseSqlServer(options.ConnectionString));
+            services.AddScoped<ISongRepository, SongRepository>();
+            services.AddScoped<CatalogUnitOfWork>();
         }
     }
 }

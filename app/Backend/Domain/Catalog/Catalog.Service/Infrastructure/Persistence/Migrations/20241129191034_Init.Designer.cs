@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Catalog.Service.Migrations
+namespace Catalog.Service.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(CatalogContext))]
-    [Migration("20241129052810_Init")]
+    [Migration("20241129191034_Init")]
     partial class Init
     {
         /// <inheritdoc />

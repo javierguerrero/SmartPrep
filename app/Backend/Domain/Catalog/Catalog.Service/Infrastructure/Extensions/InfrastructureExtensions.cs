@@ -1,4 +1,5 @@
 ﻿
+using Catalog.Service.Infrastructure.Http.Extensions;
 using Catalog.Service.Infrastructure.Persistence.Extensions;
 
 namespace Library.Service.Infrastructure.Extensions
@@ -14,6 +15,7 @@ namespace Library.Service.Infrastructure.Extensions
             var options = new InfrastructureOptions();
             configure(options);
 
+            services.AddHttp();
             services.AddPersistence(opt => opt.ConnectionString = options.ConnectionString);
         }
     }

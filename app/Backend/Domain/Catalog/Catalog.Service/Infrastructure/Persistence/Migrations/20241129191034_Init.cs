@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Catalog.Service.Migrations
+namespace Catalog.Service.Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

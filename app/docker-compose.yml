@@ -1,12 +1,10 @@
-version: '3.4'
-
 services:
-  musiccatalog.service:
-    image: ${DOCKER_REGISTRY-}musiccatalogservice
-    container_name: musiccatalog.service
+  catalog.service:
+    image: ${DOCKER_REGISTRY-}catalogservice
+    container_name: catalog.service
     build:
       context: .
-      dockerfile: Backend/Domain/MusicCatalog/MusicCatalog.Service/Dockerfile
+      dockerfile: Backend/Domain/Catalog/Catalog.Service/Dockerfile
     ports:
      - 8082:8080
      - 8083:8081

@@ -1,7 +1,5 @@
-version: '3.4'
-
 services:
-  musiccatalog.service:
+  catalog.service:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080

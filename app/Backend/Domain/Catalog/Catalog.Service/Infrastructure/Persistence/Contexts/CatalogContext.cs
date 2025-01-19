@@ -13,6 +13,8 @@ namespace Catalog.Service.Infrastructure.Persistence.Contexts
 
         public virtual DbSet<Song> Songs { get; set; }
 
+        public virtual DbSet<Subject> Subjects { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new Configurations.SongConfiguration());

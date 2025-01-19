@@ -13,11 +13,55 @@ namespace Catalog.Service.Infrastructure.Http.Extensions
             songsEndpoints.MapGet("", SongsHandlers.GetSongsAsync)
                 .WithName("GetSongs")
                 .WithOpenApi();
+
+            songsEndpoints.MapGet("/{songId:guid}", SongsHandlers.GetSongBySongIdAsync)
+                .WithName("GetSong")
+                .WithOpenApi();
+
+            songsEndpoints.MapPost("", SongsHandlers.CreateSongAsync)
+                .WithName("CreateSong")
+                .WithOpenApi();
+
+            songsEndpoints.MapDelete("/{songId:guid}", SongsHandlers.DeleteSongAsync)
+                .WithName("DeleteSong")
+                .WithOpenApi();
+
+            songsEndpoints.MapPut("/{songId:guid}", SongsHandlers.UpdateSongAsync)
+                .WithName("UpdateSong")
+                .WithOpenApi();
+        }
+
+        public static void RegisterSubjectsEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
+        {
+            var subjectsEndpoints = endpointRouteBuilder
+                .MapGroup("api/subjects")
+                .WithTags("Subjects");
+
+            subjectsEndpoints.MapGet("", SubjectsHandlers.GetSubjectsAsync)
+                .WithName("GetSubjects")
+                .WithOpenApi();
+
+            subjectsEndpoints.MapPost("", SubjectsHandlers.CreateSubjectAsync)
+                .WithName("CreateSubject")
+                .WithOpenApi();
+
+            //subjectsEndpoints.MapGet("/{songId:guid}", SongsHandlers.GetSongBySongIdAsync)
+            //    .WithName("GetSubject")
+            //    .WithOpenApi();
+
+            //subjectsEndpoints.MapDelete("/{songId:guid}", SongsHandlers.DeleteSongAsync)
+            //    .WithName("DeleteSubject")
+            //    .WithOpenApi();
+
+            //subjectsEndpoints.MapPut("/{songId:guid}", SongsHandlers.UpdateSongAsync)
+            //    .WithName("UpdateSubject")
+            //    .WithOpenApi();
         }
 
         public static void RegisterEndpoints(this IEndpointRouteBuilder app)
         {
             app.RegisterSongsEndpoints();
+            app.RegisterSubjectsEndpoints();
         }
     }
 }

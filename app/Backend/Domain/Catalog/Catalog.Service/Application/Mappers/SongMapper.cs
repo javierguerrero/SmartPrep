@@ -9,6 +9,8 @@ namespace Catalog.Service.Application.Mappers
         public SongMapper()
         {
             CreateMap<Song, SongDto>();
+            CreateMap<SongForCreationDto, Song>();
+            CreateMap<SongForUpdateDto, Song>();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Catalog.Service.Infrastructure.Persistence.Extensions
 
             services.AddDbContext<CatalogContext>(o => o.UseSqlServer(options.ConnectionString));
             services.AddScoped<ISongRepository, SongRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
             services.AddScoped<CatalogUnitOfWork>();
         }
     }

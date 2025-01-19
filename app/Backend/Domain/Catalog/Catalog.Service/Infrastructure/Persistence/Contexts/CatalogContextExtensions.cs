@@ -22,7 +22,19 @@ namespace Catalog.Service.Infrastructure.Persistence.Contexts
                 }
             };
 
+            List<Subject> subjects = new List<Subject>()
+            {
+                new Subject()
+                {
+                    SubjectId = new Guid("bf237d14-cecb-471e-97d6-65ac9542635e"),
+                    Name = "AZ-900",
+                    Image = string.Empty
+                }
+            };
+
+
             Songs.AddRange(songs);
+            Subjects.AddRange(subjects);
             SaveChanges();
         }
     }

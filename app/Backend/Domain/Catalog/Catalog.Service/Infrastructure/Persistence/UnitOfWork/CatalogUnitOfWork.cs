@@ -7,15 +7,19 @@ namespace Catalog.Service.Infrastructure.Persistence.UnitOfWork
     public class CatalogUnitOfWork : UnitOfWork
     {
         public ISongRepository Songs { get; }
+        public ISubjectRepository Subjects { get; }
+
         public CatalogContext _context { get; }
 
         public CatalogUnitOfWork(
             CatalogContext context,
-            ISongRepository songRepository
+            ISongRepository songRepository,
+            ISubjectRepository subjectRepository
         ) : base(context)
         {
             _context = context;
             Songs = songRepository;
+            Subjects = subjectRepository;
         }
     }
 }

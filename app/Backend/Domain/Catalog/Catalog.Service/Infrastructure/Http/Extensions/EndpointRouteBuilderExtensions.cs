@@ -45,17 +45,17 @@ namespace Catalog.Service.Infrastructure.Http.Extensions
                 .WithName("CreateSubject")
                 .WithOpenApi();
 
-            //subjectsEndpoints.MapGet("/{songId:guid}", SongsHandlers.GetSongBySongIdAsync)
-            //    .WithName("GetSubject")
-            //    .WithOpenApi();
+            subjectsEndpoints.MapGet("/{subjectId:guid}", SubjectsHandlers.GetSubjectBySubjectIdAsync)
+                .WithName("GetSubject")
+                .WithOpenApi();
 
-            //subjectsEndpoints.MapDelete("/{songId:guid}", SongsHandlers.DeleteSongAsync)
-            //    .WithName("DeleteSubject")
-            //    .WithOpenApi();
+            subjectsEndpoints.MapDelete("/{subjectId:guid}", SubjectsHandlers.DeleteSubjectAsync)
+                .WithName("DeleteSubject")
+                .WithOpenApi();
 
-            //subjectsEndpoints.MapPut("/{songId:guid}", SongsHandlers.UpdateSongAsync)
-            //    .WithName("UpdateSubject")
-            //    .WithOpenApi();
+            subjectsEndpoints.MapPut("/{subjectId:guid}", SubjectsHandlers.UpdateSubjectAsync)
+                .WithName("UpdateSubject")
+                .WithOpenApi();
         }
 
         public static void RegisterEndpoints(this IEndpointRouteBuilder app)

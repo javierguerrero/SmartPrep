@@ -24,5 +24,8 @@ namespace Catalog.Service.Application.Interfaces
 
         Task<List<SubjectDto>> GetSubjectsAsync();
         Task<SubjectDto> CreateSubjectAsync(SubjectForCreationDto subject);
+        Task<SubjectDto> GetSubjectBySubjectIdAsync(Guid subjectId);
+        Task<bool?> DeleteSubjectAsync(Guid subjectId);
+        Task<UpdateSubjectResult> UpdateSubjectAsync(Guid subjectId, SubjectForUpdateDto subject);
     }
 }

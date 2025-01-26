@@ -10,6 +10,7 @@ namespace Catalog.Service.Application.Mappers
         {
             CreateMap<Subject, SubjectDto>();
             CreateMap<SubjectForCreationDto, Subject>();
+            CreateMap<SubjectForUpdateDto, Subject>();
         }
     }
 }

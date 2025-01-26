@@ -25,14 +25,23 @@ namespace Catalog.Service.Infrastructure.Persistence.Repositories
             await _context.Subjects.AddAsync(subject);
         }
 
-        public Task DeleteSubjectAsync(Subject subject)
+        public async Task<Subject> GetSubjectAsync(Guid subjectId)
         {
-            throw new NotImplementedException();
+            return await _context.Subjects.FirstOrDefaultAsync(s => s.SubjectId == subjectId);
         }
 
-        public Task<Subject> GetSubjectAsync(Guid subjectId)
+        public async Task DeleteSubjectAsync(Subject subject)
         {
-            throw new NotImplementedException();
+            await Task.FromResult(_context.Subjects.Remove(subject));
+        }
+
+        public async Task UpdateSubjectAsync(Subject subject)
+        {
+            var subjectUpdate = await GetSubjectAsync(subject.SubjectId);
+            if (subjectUpdate != null)
+            {
+                subjectUpdate.Name = subject.Name;
+            }
         }
 
         public Task<IEnumerable<Subject>> GetSubjectsAsync(List<Guid> subjectIds)
@@ -45,9 +54,6 @@ namespace Catalog.Service.Infrastructure.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task UpdateSubjectAsync(Subject subject)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
